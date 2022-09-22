@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: git-basic/0
+  sections:
+  - file: git-basic/1.init
+  - file: git-basic/2.recording
+  - file: git-basic/3.ignore
+  - file: git-basic/4.history
+  - file: git-basic/5.undoing
+  - file: git-basic/6.remote
+- file: git-branch/0
+  sections:
+  - file: git-branch/1.intro
+  - file: git-branch/2.merge
+  - file: git-branch/3.manage
+  - file: git-branch/4.workflow
+  - file: git-branch/5.remote
+  - file: git-branch/6.rebase
