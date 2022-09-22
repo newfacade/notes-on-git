@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>远程分支 &#8212; Git 笔记</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/github.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="变基" href="6.rebase.html" />
+    <link rel="prev" title="分支开发工作流" href="4.workflow.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/xiaogong.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Git 笔记</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../git-basic/0.html">
+   Git 基础
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-basic/1.init.html">
+     获取 Git 仓库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-basic/2.recording.html">
+     记录每次更新到仓库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-basic/3.ignore.html">
+     忽略文件
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-basic/4.history.html">
+     查看提交历史
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-basic/5.undoing.html">
+     撤销操作
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-basic/6.remote.html">
+     远程仓库的使用
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0.html">
+   Git 分支
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1.intro.html">
+     分支简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.merge.html">
+     分支合并
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3.manage.html">
+     分支管理
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4.workflow.html">
+     分支开发工作流
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     远程分支
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6.rebase.html">
+     变基
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/newfacade/notes-on-git/master?urlpath=tree/git-branch/5.remote.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/newfacade/notes-on-git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/newfacade/notes-on-git/issues/new?title=Issue%20on%20page%20%2Fgit-branch/5.remote.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/git-branch/5.remote.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   远程跟踪分支
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   推送
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   跟踪分支
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   拉取
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   删除远程分支
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>远程分支</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   远程跟踪分支
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   推送
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   跟踪分支
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   拉取
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   删除远程分支
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>远程分支<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>远程跟踪分支<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>远程跟踪分支是远程分支状态的引用，它是你无法移动的本地引用。一旦你进行了网络通信（fetch），Git 就会为你移动它们以精确反映远程仓库的状态。它们以 <code class="docutils literal notranslate"><span class="pre">&lt;remote&gt;/&lt;branch&gt;</span></code> 的形式命名。例如，如果你想要看最后一次与远程仓库 origin 通信时 master 分支的状态，你可以查看 origin/master 分支。</p>
+</div>
+<p>这可能有点难以理解，让我们来看一个例子。假设你的网络里有一个在 git.ourcompany.com 的 Git 服务器。如果从这里克隆，Git 的 clone 命令会为你自动将其命名为 origin，拉取它所有的数据，创建一个指向 master 分支的指针，并且在本地将其命名为 origin/master。Git 也会给你一个与 origin/master 指向同一个地方的本地 master 分支，这样你就有工作的基础。</p>
+<p><img alt="" src="../_images/remote1.png" /></p>
+<p>如果你在本地 master 分支做了一些工作，在同一段时间内有其他人推送到 git.ourcompany.com 并且更新了它的 master 分支，这就是说你们的提交历史已走向不同的方向。即便这样，只要你保持不与 origin 服务器连接（fetch），你的 origin/master 指针就不会移动。</p>
+<p><img alt="" src="../_images/remote2.png" /></p>
+<p>如果要与给定的远程仓库同步数据，运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">&lt;remote&gt;</span></code> 命令（在本例中为 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span></code>）。这个命令查找 origin 是哪一个服务器，从中抓取本地没有的数据，并且更新本地数据库，移动 origin/master 指针到更新之后的位置。</p>
+<p><img alt="" src="../_images/remote3.png" /></p>
+<p>为了演示有多个远程仓库与远程分支的情况，我们假设你有另一个 Git 服务器，仅服务于你的某个敏捷开发团队。这个服务器位于 git.team1.ourcompany.com。你可以运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span></code> 命令添加一个新的远程仓库引用到当前的项目。将这个远程仓库命名为 teamone，将其作为完整 URL 的缩写。</p>
+<p><img alt="" src="../_images/remote4.png" /></p>
+<p>现在，可以运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">teamone</span></code> 来抓取远程仓库 teamone 有而本地没有的数据。因为那台服务器上现有的数据是 origin 服务器上的一个子集，所以 Git 并不会抓取数据而是会设置远程跟踪分支 teamone/master 指向 teamone 的 master 分支。</p>
+<p><img alt="" src="../_images/remote5.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>推送<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>当你想要公开分享一个分支时，需要将其推送到有写入权限的远程仓库上。本地的分支并不会自动与远程仓库同步 - 你必须显式地推送想要分享的分支。</p>
+<p>如果希望和别人一起在名为 serverfix 的分支上工作，运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">&lt;branch&gt;</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin serverfix
+Counting objects: 24, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (24/24), 1.91 KiB | 0 bytes/s, done.
+Total 24 (delta 2), reused 0 (delta 0)
+To https://github.com/schacon/simplegit
+ * [new branch]      serverfix -&gt; serverfix
+</pre></div>
+</div>
+<p>你也可以运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">serverfix:serverfix</span></code>，它会做同样的事。当然也可以通过这种格式来推送本地分支到一个命名不相同的远程分支，比如说运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">serverfix:awesomebranch</span></code> 会将本地的 serverfix 分支推送到远程仓库的 awesomebranch 分支。</p>
+<p>下一次其他协作者从服务器上抓取数据时，他们会在本地生成一个远程分支 origin/serverfix，指向服务器的 serverfix 分支：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch origin
+remote: Counting objects: 7, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/schacon/simplegit
+ * [new branch]      serverfix    -&gt; origin/serverfix
+</pre></div>
+</div>
+<p>要特别注意的一点是当抓取到新的远程跟踪分支时，本地并不会形成可编辑的副本。换一句话说，这种情况下，不会有一个新的 serverfix 分支 - 只有一个不可修改的 origin/serverfix 指针。</p>
+<p>可以运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">origin/serverfix</span></code> 将这些工作合并到当前所在的分支。如果想在自己的 serverfix 分支上工作，可以将其建立在远程跟踪分支之上：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b serverfix origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+Switched to a new branch &#39;serverfix&#39;
+</pre></div>
+</div>
+<p>这会给你一个用于工作的本地分支，并且起点位于 origin/serverfix。</p>
+</div>
+<div class="section" id="id4">
+<h2>跟踪分支<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>从一个远程分支检出（checkout）一个本地分支会自动创建所谓的“跟踪分支”。跟踪分支是与远程分支有直接关系的本地分支。如果在一个跟踪分支上输入 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>，Git 能自动识别去哪个服务器上抓取、合并到哪个分支。</p>
+<p>当克隆一个仓库时，通常会自动创建一个跟踪 origin/master 的 master 分支。然而，如果你愿意的话可以设置其他的跟踪分支，命令为 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;branch&gt;</span> <span class="pre">&lt;remote&gt;/&lt;branch&gt;</span></code>，这是一个十分常见的操作所以 Git 提供了 –track 快捷方式：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout --track origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+Switched to a new branch &#39;serverfix&#39;
+</pre></div>
+</div>
+<p>如果想要将本地分支与远程分支设置为不同的名字：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b sf origin/serverfix
+Branch sf set up to track remote branch serverfix from origin.
+Switched to a new branch &#39;sf&#39;
+</pre></div>
+</div>
+<p>现在，本地分支 sf 会自动从 origin/serverfix 拉取。</p>
+<p>设置已有的本地分支跟踪一个刚刚拉取下来的远程分支，或者想要修改跟踪的上游分支，可以使用 -u 或者 –set-upstream-to 选项：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -u origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+</pre></div>
+</div>
+<p>如果想要查看设置的所有跟踪分支，可以使用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-vv</span></code> ，它还会列出远程分支与本地分支是否是领先、落后或者都是：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -vv
+  iss53     7e424c3 [origin/iss53: ahead 2] forgot the brackets
+  master    1ae2a45 [origin/master] deploying index fix
+* serverfix f8674d9 [teamone/server-fix-good: ahead 3, behind 1] this should do it
+  testing   5ea463a trying something new
+</pre></div>
+</div>
+<p>这里可以看到 iss53 分支正在跟踪 origin/iss53 并且“ahead”是 2，意味着本地还有两个提交没有被推送到服务器上。接下来可以看到 serverfix 分支正在跟踪 teamone 服务器上的 server-fix-good 分支并且领先 3 落后 1，意味着服务器上有一次提交没合并入同时本地有三次提交还没推送。最后看到 testing 分支并没有跟踪任何远程分支。</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>需要注意的是这些数字的值来自于你从每个服务器上最后一次抓取（fetch）的数据，这个命令并没有连接服务器，它只会告诉你关于本地缓存的服务器数据。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>拉取<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>当 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> 从服务器上抓取本地没有的数据时，它并不会修改工作目录中的内容。它只会获取数据然后让你自己合并。然而，有一个 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 命令在大多数情况下等同于 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> 紧接着一个 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>。如果有一个像之前章节演示的设置好的跟踪分支，<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 都会查找当前分支的服务器与分支，从服务器上抓取数据后尝试合并入那个远程分支。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>由于 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 的魔法经常令人困惑所以通常单独显式地使用 fetch 和 merge 命令会更好一些。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>删除远程分支<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>你可以运行带有 –delete 选项的 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> 命令来删除一个远程分支：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin --delete serverfix
+To https://github.com/schacon/simplegit
+ - [deleted]         serverfix
+</pre></div>
+</div>
+<p>基本上这个命令做的只是从服务器上移除这个指针。</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./git-branch"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="4.workflow.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">分支开发工作流</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="6.rebase.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">变基</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By newfacade<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
