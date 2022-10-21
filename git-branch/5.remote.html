@@ -489,17 +489,17 @@ title="Print to PDF"
 <h2>远程跟踪分支<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>远程跟踪分支是远程分支状态的引用，它是你无法移动的本地引用。一旦你进行了网络通信（fetch），Git 就会为你移动它们以精确反映远程仓库的状态。它们以 <code class="docutils literal notranslate"><span class="pre">&lt;remote&gt;/&lt;branch&gt;</span></code> 的形式命名。例如，如果你想要看最后一次与远程仓库 origin 通信时 master 分支的状态，你可以查看 origin/master 分支。</p>
+<p>远程跟踪分支（remote-tracking branch）是远程分支状态的引用，它是你无法移动的本地引用。一旦你进行了网络通信（fetch），Git 就会为你移动它们以精确反映远程仓库的状态。它们以 <code class="docutils literal notranslate"><span class="pre">&lt;remote&gt;/&lt;branch&gt;</span></code> 的形式命名。例如，如果你想要看最后一次与远程仓库 origin 通信时 master 分支的状态，你可以查看 origin/master 分支。</p>
 </div>
-<p>这可能有点难以理解，让我们来看一个例子。假设你的网络里有一个在 git.ourcompany.com 的 Git 服务器。如果从这里克隆，Git 的 clone 命令会为你自动将其命名为 origin，拉取它所有的数据，创建一个指向 master 分支的指针，并且在本地将其命名为 origin/master。Git 也会给你一个与 origin/master 指向同一个地方的本地 master 分支，这样你就有工作的基础。</p>
+<p>This may be a bit confusing, so let’s look at an example. Let’s say you have a Git server on your network at <code class="docutils literal notranslate"><span class="pre">git.ourcompany.com</span></code>. If you clone from this, Git’s <code class="docutils literal notranslate"><span class="pre">clone</span></code> command automatically names it <code class="docutils literal notranslate"><span class="pre">origin</span></code> for you, pulls down all its data, create a pointer to where its master branch is, and names it <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> locally. Git also gives you your own local <code class="docutils literal notranslate"><span class="pre">master</span></code> branch starting at the same place as origin’s master branch, so you have something to work from.</p>
 <p><img alt="" src="../_images/remote1.png" /></p>
-<p>如果你在本地 master 分支做了一些工作，在同一段时间内有其他人推送到 git.ourcompany.com 并且更新了它的 master 分支，这就是说你们的提交历史已走向不同的方向。即便这样，只要你保持不与 origin 服务器连接（fetch），你的 origin/master 指针就不会移动。</p>
+<p>如果你在本地 master 分支上做了一些工作，在同一段时间内有其他人推送到 git.ourcompany.com 并且更新了它的 master 分支，这就是说你们的提交历史已走向不同的方向。即便这样，只要你保持不与 origin 服务器连接（fetch），你的 origin/master 指针就不会移动。</p>
 <p><img alt="" src="../_images/remote2.png" /></p>
 <p>如果要与给定的远程仓库同步数据，运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">&lt;remote&gt;</span></code> 命令（在本例中为 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span></code>）。这个命令查找 origin 是哪一个服务器，从中抓取本地没有的数据，并且更新本地数据库，移动 origin/master 指针到更新之后的位置。</p>
 <p><img alt="" src="../_images/remote3.png" /></p>
 <p>为了演示有多个远程仓库与远程分支的情况，我们假设你有另一个 Git 服务器，仅服务于你的某个敏捷开发团队。这个服务器位于 git.team1.ourcompany.com。你可以运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span></code> 命令添加一个新的远程仓库引用到当前的项目。将这个远程仓库命名为 teamone，将其作为完整 URL 的缩写。</p>
 <p><img alt="" src="../_images/remote4.png" /></p>
-<p>现在，可以运行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">teamone</span></code> 来抓取远程仓库 teamone 有而本地没有的数据。因为那台服务器上现有的数据是 origin 服务器上的一个子集，所以 Git 并不会抓取数据而是会设置远程跟踪分支 teamone/master 指向 teamone 的 master 分支。</p>
+<p>Now, you can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">teamone</span></code> to fetch everything the remote <code class="docutils literal notranslate"><span class="pre">teamone</span></code> server has that you don’t have yet. Because that server has a subset of the data your <code class="docutils literal notranslate"><span class="pre">origin</span></code> server has right now, Git fetches no data but sets a remote-tracking branch called <code class="docutils literal notranslate"><span class="pre">teamone/master</span></code> to point to the commit that teamone has as its branch master.</p>
 <p><img alt="" src="../_images/remote5.png" /></p>
 </div>
 <div class="section" id="id3">
@@ -538,7 +538,7 @@ Switched to a new branch &#39;serverfix&#39;
 </div>
 <div class="section" id="id4">
 <h2>跟踪分支<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
-<p>从一个远程分支检出（checkout）一个本地分支会自动创建所谓的“跟踪分支”。跟踪分支是与远程分支有直接关系的本地分支。如果在一个跟踪分支上输入 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>，Git 能自动识别去哪个服务器上抓取、合并到哪个分支。</p>
+<p>从一个远程分支检出（checkout）一个本地分支会自动创建所谓的“跟踪分支”。跟踪分支是与远程分支有直接关系的本地分支。如果在一个跟踪分支上输入 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>，Git automatically knows which server to fetch from and which branch to merge in.</p>
 <p>当克隆一个仓库时，通常会自动创建一个跟踪 origin/master 的 master 分支。然而，如果你愿意的话可以设置其他的跟踪分支，命令为 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;branch&gt;</span> <span class="pre">&lt;remote&gt;/&lt;branch&gt;</span></code>，这是一个十分常见的操作所以 Git 提供了 –track 快捷方式：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout --track origin/serverfix
 Branch serverfix set up to track remote branch serverfix from origin.
@@ -573,10 +573,10 @@ Branch serverfix set up to track remote branch serverfix from origin.
 </div>
 <div class="section" id="id5">
 <h2>拉取<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
-<p>当 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> 从服务器上抓取本地没有的数据时，它并不会修改工作目录中的内容。它只会获取数据然后让你自己合并。然而，有一个 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 命令在大多数情况下等同于 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> 紧接着一个 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>。如果有一个像之前章节演示的设置好的跟踪分支，<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 都会查找当前分支的服务器与分支，从服务器上抓取数据后尝试合并入那个远程分支。</p>
+<p>当 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> 从服务器上抓取本地没有的数据时，它并不会修改工作目录中的内容。它只会获取数据然后让你自己合并。然而，有一个 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 命令在大多数情况下等同于 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> 紧接着一个 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>。如果有一个像之前章节演示的设置好的跟踪分支，<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 都会查找当前分支的服务器与分支，从服务器上抓取数据后尝试将那个远程分支合并进来。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>由于 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 的魔法经常令人困惑所以通常单独显式地使用 fetch 和 merge 命令会更好一些。</p>
+<p>由于 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 的魔法经常令人困惑，所以通常单独显式地使用 fetch 和 merge 命令会更好一些。</p>
 </div>
 </div>
 <div class="section" id="id6">

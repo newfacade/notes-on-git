@@ -473,7 +473,7 @@ title="Print to PDF"
 <h2>分叉<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>首先，我们假设你正在你的项目上工作，并且在 master 分支上已经有了一些提交。</p>
 <p><img alt="" src="../_images/merge1.png" /></p>
-<p>现在，你已经决定要解决你的公司使用的问题追踪系统的 #53 问题。想要新建一个分支并同时切换到那个分支上：</p>
+<p>现在，你已经决定要解决此项目的 #53 问题。想要新建一个分支并同时切换到那个分支上：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">iss53</span>
 </pre></div>
 </div>
@@ -488,7 +488,7 @@ $ git commit -a -m &#39;added a new footer [issue 53]&#39;
 <p>但是，在这么做之前，<strong>要留意你的工作目录和暂存区里那些还没被提交的修改，它可能会和你即将检出的分支产生冲突从而阻止 Git 切换分支</strong>。最好的方法是，在你切换分支之前，保持一个干净的状态（可以创建新的提交，也可以通过暂存（stashing）和修补提交（commit amending）绕过这个问题）。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>有时，当你在项目的一部分上已经工作一段时间后，所有东西都进入了混乱的状态，而这时候你想要切换到另一个分支做一点别的事情。问题是，你不想仅仅因为过会儿回到这一点而为做一半的工作创建一次提交。针对这个问题的答案就是 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> 命令。<br>
+<p>有时，当你在项目的一部分上已经工作一段时间后，所有东西都进入了混乱的状态，而这时候你想要切换到另一个分支做一点别的事情。问题是，你不想仅仅因为过会儿要回到这个状态而为做一半的工作创建一次提交。针对这个问题的答案就是 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> 命令。<br>
 贮藏（stash）会处理工作目录的脏的状态 - 即跟踪文件的修改和暂存的改动 - 然后将未完成的修改保存到一个栈上，而你可以在任何时候重新应用这些改动（甚至在不同的分支上）。</p>
 </div>
 <p>现在，我们假设你已经把你的修改全部提交了，这时，你可以切换回 master 分支了：</p>
@@ -506,7 +506,7 @@ $ git commit -a -m &#39;fixed the broken email address&#39;
 </pre></div>
 </div>
 <p><img alt="" src="../_images/merge4.png" /></p>
-<p>你可以运行你的测试，确保你的修改时正确的，然后将 hotfix 分支合并回你的 master 分支来部署到线上。你可以使用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> 命令达到上述目的：</p>
+<p>你可以运行你的测试，确保你的修改是正确的，然后将 hotfix 分支合并回你的 master 分支来部署到线上。你可以使用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> 命令达到上述目的：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
 $ git merge hotfix
 Updating f42c576..3a0874c
@@ -545,9 +545,9 @@ index.html |    1 +
 1 file changed, 1 insertion(+)
 </pre></div>
 </div>
-<p>这和你之前合并 hotfix 分支的时候看起来有点不一样。在这种情况下，在这种情况下，你的开发历史从一个更早的地方开始分叉开来（diverged）。出现这种情况的时候，Git 会使用两个分支所指的快照（C4 和 C5）以及这两个分支的共同祖先（C2），做一个简单的 <strong>三方合并</strong> 。</p>
+<p>这和你之前合并 hotfix 分支的时候看起来有点不一样。在这种情况下，你的开发历史从一个更早的地方开始分叉开来（diverged）。出现这种情况的时候，Git 会使用两个分支所指的快照（C4 和 C5）以及这两个分支的共同祖先（C2），做一个简单的 <strong>三方合并</strong> 。</p>
 <p><img alt="" src="../_images/merge7.png" /></p>
-<p>和之前将分支指针向前推进所不同的是，Git 将此次三方合并的结果 <strong>做了一个新的快照并且自动创建一个新的提交指向它</strong> 。这个被称作一次合并提交，它的特别之处在于他有不止一个父提交。</p>
+<p>和之前将分支指针向前推进所不同的是，Git 将此次三方合并的结果 <strong>做了一个新的快照并且自动创建一个新的提交指向它</strong> 。这被称为一次合并提交，它的特别之处在于他有不止一个父提交。</p>
 <p><img alt="" src="../_images/merge8.png" /></p>
 <p>既然你的修改已经合并进来了，就不再需要 iss53 分支了：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -d iss53
