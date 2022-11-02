@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>变基 &#8212; Git 笔记</title>
+    <title>什么是 Git &#8212; Git 笔记</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/github.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GitHub" href="../github/0.html" />
-    <link rel="prev" title="远程分支" href="5.remote.html" />
+    <link rel="next" title="安装 Git" href="3.install.html" />
+    <link rel="prev" title="版本控制" href="1.version.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,33 +114,33 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../intro/0.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0.html">
    起步
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../intro/1.version.html">
+    <a class="reference internal" href="1.version.html">
      版本控制
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../intro/2.what-is-git.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      什么是 Git
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../intro/3.install.html">
+    <a class="reference internal" href="3.install.html">
      安装 Git
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../intro/4.config.html">
+    <a class="reference internal" href="4.config.html">
      初次运行 Git 前的配置
     </a>
    </li>
@@ -188,43 +188,43 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="0.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../git-branch/0.html">
    Git 分支
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="1.intro.html">
+    <a class="reference internal" href="../git-branch/1.intro.html">
      分支简介
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.merge.html">
+    <a class="reference internal" href="../git-branch/2.merge.html">
      分支合并
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3.manage.html">
+    <a class="reference internal" href="../git-branch/3.manage.html">
      分支管理
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4.workflow.html">
+    <a class="reference internal" href="../git-branch/4.workflow.html">
      分支开发工作流
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="5.remote.html">
+    <a class="reference internal" href="../git-branch/5.remote.html">
      远程分支
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-branch/6.rebase.html">
      变基
     </a>
    </li>
@@ -318,6 +318,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/newfacade/notes-on-git/master?urlpath=tree/intro/2.what-is-git.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -357,7 +386,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/newfacade/notes-on-git/issues/new?title=Issue%20on%20page%20%2Fgit-branch/6.rebase.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/newfacade/notes-on-git/issues/new?title=Issue%20on%20page%20%2Fintro/2.what-is-git.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -385,7 +414,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/git-branch/6.rebase.md"
+        <a href="../_sources/intro/2.what-is-git.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -396,7 +425,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -445,13 +474,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   直接记录快照，而非差异比较
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   变基的基本操作
+   近乎所有操作都在本地执行
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   变基的风险
+   Git 保存完整性
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Git 一般只添加数据
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   三种状态
   </a>
  </li>
 </ul>
@@ -463,7 +507,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>变基</h1>
+                <h1>什么是 Git</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -474,13 +518,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   直接记录快照，而非差异比较
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   变基的基本操作
+   近乎所有操作都在本地执行
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   变基的风险
+   Git 保存完整性
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Git 一般只添加数据
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   三种状态
   </a>
  </li>
 </ul>
@@ -493,45 +552,67 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>变基<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="git">
+<h1>什么是 Git<a class="headerlink" href="#git" title="Permalink to this headline">#</a></h1>
+<p>Git 诞生于 Linux 开源社区（特别是 Linux 的缔造者 Linus Torvalds），他们希望开发出自己的版本控制系统，他们对新系统制定了若干目标：</p>
+<ul class="simple">
+<li><p>速度</p></li>
+<li><p>简单的设计</p></li>
+<li><p>对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</p></li>
+<li><p>完全分布式</p></li>
+<li><p>有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）</p></li>
+</ul>
+<p>自 2005 年诞生以来，Git 日臻成熟完善，在高度易用的同时，仍然保留着最初设定的目标。它的速度飞快，极其适合管理大项目，有着令人难以置信的非线性分支管理系统。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>在 Git 中整合来自不同分支的修改主要有两种方式：<code class="docutils literal notranslate"><span class="pre">merge</span></code> 和 <code class="docutils literal notranslate"><span class="pre">rebase</span></code>。在本节我们将学习什么是“变基”，怎样使用“变基”，将展示该操作的惊艳之处，以及指出在何种情况下你应该避免使用它。</p>
+<p>那么，简单说，Git 究竟是怎样的一个系统呢？请注意接下来的内容非常重要，若你理解了 Git 思想的基本工作原理，用起来就会知其所以然，游刃有余。尽管 Git 用起来与其它版本控制系统非常相似，但它在对信息的存储和认知方式上却有很大差异，理解这些差异将有助于避免使用中的困惑。</p>
+</div>
+<div class="section" id="id1">
+<h2>直接记录快照，而非差异比较<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Git 与其它版本控制系统的主要差别在于 Git 对待数据的方式。其他大部分系统以文件变更列表的方式存储信息，这类系统将它们存储的信息看做是一组基本文件和每个文件随时间逐步累计的差异。</p>
+<p><img alt="" src="../_images/deltas.png" /></p>
+<p>Git 不按以上方式对待或保存数据。反之，Git 更像是把数据当做小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会<code class="docutils literal notranslate"><span class="pre">对当时的全部文件创建一个快照并保存这个快照的索引</span></code>。为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。</p>
+<p><img alt="" src="../_images/snapshots.png" /></p>
+<p>稍后，我们在讨论 Git 分支管理时，将探究这种方式对待数据所能获得的益处。</p>
 </div>
 <div class="section" id="id2">
-<h2>变基的基本操作<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>我们看一个例子，开发任务分到了两个不同的分支，又各自提交了更新：</p>
-<p><img alt="" src="../_images/rebase1.png" /></p>
-<p>之前介绍过，整合更新最容易的方法是 <code class="docutils literal notranslate"><span class="pre">merge</span></code> 命令。它会把两个分支的最新快照（C3 和 C4）以及二者的最近共同祖先（C2）进行三方合并，合并的结果是生成一个新的快照（并提交）。</p>
-<p><img alt="" src="../_images/rebase2.png" /></p>
-<p>其实，还有一种方法：你可以提取在 C4 引入的修改，然后在 C3 的基础上应用一次。在 Git 中，这种操作就叫做变基（rebase）。你可以使用 <code class="docutils literal notranslate"><span class="pre">rebase</span></code> 命令将提交到某一分支上的所有修改都移至另一个分支上。</p>
-<p>在这个例子中，你可以检出 experiment 分支，然后将它变基到 master 分支上：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout experiment
-$ git rebase master
-First, rewinding head to replay your work on top of it...
-Applying: added staged command
-</pre></div>
-</div>
-<p>它的原理是首先找到两个分支的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 C3，最后以此将之前另存为临时文件的修改依序应用。</p>
-<p><img alt="" src="../_images/rebase3.png" /></p>
-<p>现在回到 master 分支，进行一次合并快进。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
-$ git merge experiment
-</pre></div>
-</div>
-<p><img alt="" src="../_images/rebase4.png" /></p>
-<p>此时，C4’ 所指向的快照就和 C5 一模一样了。这两种方法的最终结果没有任何区别，但是变基使得提交历史更加简洁。尽管实际开发过程是并行的，但它们看上去就像是串行一样。</p>
-<p>一般我们这样做的目的是确保在向远程分支推送时能保持提交历史的整洁——例如向某个其他人维护的项目贡献代码时。在这种情况下，你首先在自己的分支里进行开发，当开发完成时你需要先将你的代码变基到 origin/master 上，然后再向主项目提交修改。这样的话，该项目的维护者就不再需要进行整合工作，只需要快进合并即可。</p>
+<h2>近乎所有操作都在本地执行<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息。如果你习惯了所有操作都有网络延时开销的的集中式版本控制系统，Git 在这方面会让你感到速度之神赐给了 Git 超凡的能量。因为你在本地磁盘上就有项目的完整历史，所以大部分操作看起来瞬间完成。</p>
+<p>这也意味着你在离线或者没有 VPN 时（比如你在飞机上），几乎可以进行任何操作。</p>
 </div>
 <div class="section" id="id3">
-<h2>变基的风险<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>奇妙的变基也并非完美无缺，要用它得遵守一条准则：</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>如果提交存在于你的仓库之外，而别人可能基于这些提交进行开发，那么不要执行变基。</p>
+<h2>Git 保存完整性<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>Git 中所有数据在存储前都会计算校验和，然后以校验和来引用。这意味着不可能在 Git 不知情时更改任何文件内容或目录内容。这个功能构建在 Git 底层，是构成 Git 哲学不可或缺的部分。</p>
+<p>Git 用以计算校验和的机制叫做 SHA-1 散列。这是一个由 40 个十六进制字符组成的字符串，基于 Git 中文件的内容或目录结构计算出来。SHA-1 哈希看起来是这样：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">24</span><span class="n">b9da6552252987aa493b52f8696cd6d3b00373</span>
+</pre></div>
 </div>
-<p>变基操作的实质是丢弃一些现有的提交，然后相应地新建一些内容一样但实际上不同的提交。如果你已经将提交推送至某个仓库，而其他人也已经从该仓库拉取提交并进行了后续工作，此时，如果你用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> 命令重新整理了提交并再次推送，你的同伴将不得不再次将他们手头的工作与你的提交进行整合，事情就会变得一团糟。</p>
+<p>Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值。</p>
+</div>
+<div class="section" id="id4">
+<h2>Git 一般只添加数据<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>你执行的 Git 操作，几乎只往 Git 数据库中添加数据。你很难使用 Git 从数据库中删除数据，也就是说 Git 几乎不会执行任何可能导致文件不可回复的操作。同别的 VCS 一样，未提交更新时有可能丢失或弄乱修改的内容。但是一旦你提交快照到 Git 中，就难以再丢失数据，特别是如果你定期推送数据库到其它仓库的话。</p>
+</div>
+<div class="section" id="id5">
+<h2>三种状态<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Git 有三种状态，你的文件可能会处于其中之一：已提交（committed）、已修改（modified）和已暂存（staged）。</p>
+<ul class="simple">
+<li><p>已修改表示修改了文件，但还没保存到数据库中。</p></li>
+<li><p>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p></li>
+<li><p>已提交表示数据已经安全地保存在本地数据库中。</p></li>
+</ul>
+<p>这会让我们的 Git 项目拥有：工作区、暂存区以及 Git 目录。</p>
+<p><img alt="" src="../_images/areas.png" /></p>
+<p>工作区是对某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<p>The staging area is a file that stores information about what will go into your next commit.</p>
+<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据。</p>
+<p>基本的 Git 工作流程如下：</p>
+<ol class="simple">
+<li><p>在工作区中修改文件</p></li>
+<li><p>将你想要下次提交的更改选择性地暂存，这样只会将更改的部分添加到暂存区。</p></li>
+<li><p>提交更新，找到暂存区的文件，将快照永久性存储到 Git 目录。</p></li>
+</ol>
+<p>If a particular version of a file is in the Git directory, it’s considered <code class="docutils literal notranslate"><span class="pre">committed</span></code>. If it has been modified and was added to the staging area, it is <code class="docutils literal notranslate"><span class="pre">staged</span></code>. And if if was changed since it was checked out but not been staged, it it <code class="docutils literal notranslate"><span class="pre">modified</span></code>.</p>
 </div>
 </div>
 
@@ -548,7 +629,7 @@ $ git merge experiment
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./git-branch"
+            path: "./intro"
         },
         predefinedOutput: true
     }
@@ -562,17 +643,17 @@ $ git merge experiment
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="5.remote.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="1.version.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">远程分支</p>
+            <p class="prev-next-title">版本控制</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../github/0.html" title="next page">
+    <a class='right-next' id="next-link" href="3.install.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">GitHub</p>
+        <p class="prev-next-title">安装 Git</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

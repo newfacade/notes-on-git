@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>变基 &#8212; Git 笔记</title>
+    <title>账户的创建和配置 &#8212; Git 笔记</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/github.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GitHub" href="../github/0.html" />
-    <link rel="prev" title="远程分支" href="5.remote.html" />
+    <link rel="next" title="GitHub - 对项目做出贡献" href="2.contribute.html" />
+    <link rel="prev" title="GitHub" href="0.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -188,80 +188,80 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="0.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../git-branch/0.html">
    Git 分支
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="1.intro.html">
-     分支简介
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.merge.html">
-     分支合并
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3.manage.html">
-     分支管理
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4.workflow.html">
-     分支开发工作流
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5.remote.html">
-     远程分支
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     变基
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../github/0.html">
-   GitHub
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../github/1.account.html">
+    <a class="reference internal" href="../git-branch/1.intro.html">
+     分支简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-branch/2.merge.html">
+     分支合并
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-branch/3.manage.html">
+     分支管理
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-branch/4.workflow.html">
+     分支开发工作流
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-branch/5.remote.html">
+     远程分支
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../git-branch/6.rebase.html">
+     变基
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0.html">
+   GitHub
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      账户的创建和配置
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../github/2.contribute.html">
+    <a class="reference internal" href="2.contribute.html">
      GitHub - 对项目做出贡献
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../github/3.markdown.html">
+    <a class="reference internal" href="3.markdown.html">
      GitHub 风格的 Markdown
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../github/4.maintain.html">
+    <a class="reference internal" href="4.maintain.html">
      GitHub - 维护项目
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../github/5.org.html">
+    <a class="reference internal" href="5.org.html">
      GitHub - 管理组织
     </a>
    </li>
@@ -318,6 +318,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/newfacade/notes-on-git/master?urlpath=tree/github/1.account.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -357,7 +386,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/newfacade/notes-on-git/issues/new?title=Issue%20on%20page%20%2Fgit-branch/6.rebase.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/newfacade/notes-on-git/issues/new?title=Issue%20on%20page%20%2Fgithub/1.account.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -385,7 +414,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/git-branch/6.rebase.md"
+        <a href="../_sources/github/1.account.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -396,7 +425,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -445,13 +474,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ssh">
+   SSH 访问
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   变基的基本操作
+   邮件地址
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   变基的风险
+   两步验证
   </a>
  </li>
 </ul>
@@ -463,7 +497,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>变基</h1>
+                <h1>账户的创建和配置</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -474,13 +508,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ssh">
+   SSH 访问
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   变基的基本操作
+   邮件地址
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   变基的风险
+   两步验证
   </a>
  </li>
 </ul>
@@ -494,44 +533,26 @@ title="Print to PDF"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>变基<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>在 Git 中整合来自不同分支的修改主要有两种方式：<code class="docutils literal notranslate"><span class="pre">merge</span></code> 和 <code class="docutils literal notranslate"><span class="pre">rebase</span></code>。在本节我们将学习什么是“变基”，怎样使用“变基”，将展示该操作的惊艳之处，以及指出在何种情况下你应该避免使用它。</p>
+<h1>账户的创建和配置<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>你所需要做的第一件事是访问 <a class="reference external" href="https://github.com/">https://github.com/</a> 创建一个免费账户。选择一个未被占用的用户名，提供一个电子邮件地址和密码进行注册。注册之后需要进行邮箱验证，这很重要。</p>
+<div class="section" id="ssh">
+<h2>SSH 访问<a class="headerlink" href="#ssh" title="Permalink to this headline">#</a></h2>
+<p>现在，你完全可以使用 <code class="docutils literal notranslate"><span class="pre">https://</span></code> 协议，通过你刚刚创建的用户名和密码访问 Git 版本库。</p>
+<p>如果你习惯使用 SSH 访问，你需要配置一个公钥。在窗口右上角的下拉菜单中点击 <code class="docutils literal notranslate"><span class="pre">Settings</span></code>，选择 <code class="docutils literal notranslate"><span class="pre">SSH</span> <span class="pre">and</span> <span class="pre">GPG</span> <span class="pre">keys</span></code>，在这个页面点击 <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">SSH</span> <span class="pre">key</span></code>:</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/hub1.jpg"><img alt="hub1" class="bg-primary mb-1 align-center" src="../_images/hub1.jpg" style="width: 800px;" /></a>
+<p>给你的公钥起个名字，将你的 <code class="docutils literal notranslate"><span class="pre">~/.ssh/id_rsa.pub</span></code> 公钥文件的内容粘贴到文本区，然后点击 <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">SSH</span> <span class="pre">key</span></code>。之后在这台机器上就可以无需使用账号和密码访问 Git 版本库了。</p>
 </div>
 <div class="section" id="id2">
-<h2>变基的基本操作<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>我们看一个例子，开发任务分到了两个不同的分支，又各自提交了更新：</p>
-<p><img alt="" src="../_images/rebase1.png" /></p>
-<p>之前介绍过，整合更新最容易的方法是 <code class="docutils literal notranslate"><span class="pre">merge</span></code> 命令。它会把两个分支的最新快照（C3 和 C4）以及二者的最近共同祖先（C2）进行三方合并，合并的结果是生成一个新的快照（并提交）。</p>
-<p><img alt="" src="../_images/rebase2.png" /></p>
-<p>其实，还有一种方法：你可以提取在 C4 引入的修改，然后在 C3 的基础上应用一次。在 Git 中，这种操作就叫做变基（rebase）。你可以使用 <code class="docutils literal notranslate"><span class="pre">rebase</span></code> 命令将提交到某一分支上的所有修改都移至另一个分支上。</p>
-<p>在这个例子中，你可以检出 experiment 分支，然后将它变基到 master 分支上：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout experiment
-$ git rebase master
-First, rewinding head to replay your work on top of it...
-Applying: added staged command
-</pre></div>
-</div>
-<p>它的原理是首先找到两个分支的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 C3，最后以此将之前另存为临时文件的修改依序应用。</p>
-<p><img alt="" src="../_images/rebase3.png" /></p>
-<p>现在回到 master 分支，进行一次合并快进。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
-$ git merge experiment
-</pre></div>
-</div>
-<p><img alt="" src="../_images/rebase4.png" /></p>
-<p>此时，C4’ 所指向的快照就和 C5 一模一样了。这两种方法的最终结果没有任何区别，但是变基使得提交历史更加简洁。尽管实际开发过程是并行的，但它们看上去就像是串行一样。</p>
-<p>一般我们这样做的目的是确保在向远程分支推送时能保持提交历史的整洁——例如向某个其他人维护的项目贡献代码时。在这种情况下，你首先在自己的分支里进行开发，当开发完成时你需要先将你的代码变基到 origin/master 上，然后再向主项目提交修改。这样的话，该项目的维护者就不再需要进行整合工作，只需要快进合并即可。</p>
+<h2>邮件地址<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>GitHub 使用用户邮件地址来区分 Git 提交。如果你在自己的提交中使用了多个邮件地址，希望 GitHub 可以正确地将它们联系起来，你需要在 <code class="docutils literal notranslate"><span class="pre">Settings</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">Emails</span></code> 部分添加你的邮箱地址。</p>
 </div>
 <div class="section" id="id3">
-<h2>变基的风险<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>奇妙的变基也并非完美无缺，要用它得遵守一条准则：</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>如果提交存在于你的仓库之外，而别人可能基于这些提交进行开发，那么不要执行变基。</p>
-</div>
-<p>变基操作的实质是丢弃一些现有的提交，然后相应地新建一些内容一样但实际上不同的提交。如果你已经将提交推送至某个仓库，而其他人也已经从该仓库拉取提交并进行了后续工作，此时，如果你用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> 命令重新整理了提交并再次推送，你的同伴将不得不再次将他们手头的工作与你的提交进行整合，事情就会变得一团糟。</p>
+<h2>两步验证<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>最后，为了额外的安全性，你绝对应当设置两步验证（2FA）。两步验证是一种用于降低因你的密码被盗而带来的账户风险的验证机制，开启两步验证，GitHub 会要求你用两种不同的验证方法，这样，即使其中一个被攻破，攻击者也不能访问你的账户。</p>
+<p>你可以在 <code class="docutils literal notranslate"><span class="pre">Settings</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Password</span> <span class="pre">and</span> <span class="pre">authentication</span></code> 页面中找到 <code class="docutils literal notranslate"><span class="pre">Two-factor</span> <span class="pre">authentication</span></code> 设置。</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/hub2.jpg"><img alt="hub2" class="bg-primary mb-1 align-center" src="../_images/hub2.jpg" style="width: 800px;" /></a>
+<p>点击 <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">two-factor</span> <span class="pre">authentication</span></code> 按钮会跳到设置页面。该页面允许你选择是要在登录时使用 A time-based one-time password (TOTP) app 生成辅助码（可以去应用商店下载，只有苹果手机适用），还是要 GitHub 通过 SMS 短信发送辅助码（大陆手机不适用）。</p>
+<p>GitHub Enterprise Cloud will only ask you to provide your 2FA authentication code again if you’ve logged out, are using a new device, or your session expires.</p>
 </div>
 </div>
 
@@ -548,7 +569,7 @@ $ git merge experiment
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./git-branch"
+            path: "./github"
         },
         predefinedOutput: true
     }
@@ -562,17 +583,17 @@ $ git merge experiment
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="5.remote.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="0.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">远程分支</p>
+            <p class="prev-next-title">GitHub</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../github/0.html" title="next page">
+    <a class='right-next' id="next-link" href="2.contribute.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">GitHub</p>
+        <p class="prev-next-title">GitHub - 对项目做出贡献</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
